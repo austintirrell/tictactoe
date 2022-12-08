@@ -1,0 +1,1 @@
+let gameContainer = document.getElementById('game-board')
