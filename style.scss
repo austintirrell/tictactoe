@@ -18,6 +18,7 @@
   padding: 0;
   font-family: 'Quicksand', sans-serif;
   border: none;
+  color: #000000;
 }
 
 body {
@@ -34,6 +35,33 @@ body {
       background: #EEEEEE;
       margin: .25rem;
       font-size: 4rem;
+    }
+  }
+
+  #game-over {
+    display: none;
+    position: fixed;
+    background: rgba(0, 0, 0, .75);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+
+    &.active {
+      @include flex(column);
+    }
+
+    #game-over-text {
+      color: #FFFFFF;
+      font-size: 1.5rem;
+    }
+
+    #play-again {
+      padding: 0 1rem;
+      border-radius: 25px;
+      font-size: 1.5rem;
+      margin: .5rem;
     }
   }
 

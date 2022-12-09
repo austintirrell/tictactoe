@@ -64,33 +64,27 @@ let checkForWinOrDraw = () => {
     }
   }
   if (checkForDraw) return draw
-  
+
   //game isn't finished
   return false
 }
 
-let select = (coords) => {
-  let boardPiece = document.getElementById(coords)
-  if (boardPiece.innerText == '') {
+let select = (element) => {
+  if (element.innerText == '') {
+    let coords = element.getAttribute('id')
     let row = coords.split('-')[0]
     let column = coords.split('-')[1]
 
     board[row][column] = turn
-    boardPiece.innerText = turn
+    element.innerText = turn
     board[row][column] = turn
-
-    let outcome = checkForWinOrDraw()
-    if (outcome) {
-      if (outcome == player) alert('Player wins!')
-      if (outcome == computer) alert('Computer wins!')
-      if (outcome == draw) alert('Draw!')
-      resetGame()
-    }
 
     if (mode == 'Player vs Player') {
       if (turn == player) turn = computer
       else turn = player
-    } else if (mode == 'Player vs Computer') computerSelect()
+    }
+    outcome()
+    if (mode == 'Player vs Computer') computerSelect()
   }
 }
 
@@ -106,6 +100,7 @@ let computerSelect = () => {
   let row = coords.split('-')[0]
   let column = coords.split('-')[1]
   board[row][column] = 'o'
+  outcome()
 }
 
 let switchMode = () => {
@@ -114,6 +109,22 @@ let switchMode = () => {
   pvcDisplay.classList.toggle('active')
   pvpDisplay.classList.toggle('active')
   resetGame()
+}
+
+let outcome = () => {
+  let outcome = checkForWinOrDraw()
+  if (outcome) {
+    if (outcome == player) {
+      if (mode == 'Player vs Computer') gameOver('You win!')
+      else gameOver('Player 1 Wins!')
+    }
+    if (outcome == computer) {
+      if (mode == 'Player vs Computer') gameOver('Computer wins!')
+      else gameOver('Player 2 Wins!')
+    }
+    if (outcome == draw) gameOver('Draw!')
+    return
+  }
 }
 
 let resetGame = () => {

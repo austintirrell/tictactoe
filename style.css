@@ -4,6 +4,7 @@
   padding: 0;
   font-family: "Quicksand", sans-serif;
   border: none;
+  color: #000000;
 }
 
 body {
@@ -28,6 +29,32 @@ body #game-board .board-piece {
   background: #EEEEEE;
   margin: 0.25rem;
   font-size: 4rem;
+}
+body #game-over {
+  display: none;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.75);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+body #game-over.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body #game-over #game-over-text {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+}
+body #game-over #play-again {
+  padding: 0 1rem;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  margin: 0.5rem;
 }
 body .options-container {
   display: flex;
