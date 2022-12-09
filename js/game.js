@@ -87,19 +87,33 @@ let select = (coords) => {
       resetGame()
     }
 
-    if (mode == 'Player vs Computer') {
+    if (mode == 'Player vs Player') {
       if (turn == player) turn = computer
       else turn = player
     } else if (mode == 'Player vs Computer') computerSelect()
   }
 }
 
+let computerSelect = () => {
+  let options = []
+  let elements = document.getElementsByClassName('board-piece')
+  for (i = 0; i < elements.length; i++) {
+    if (elements[i].innerText == '') options.push(elements[i])
+  }
+  let choice = options[Math.floor(Math.random() * options.length)]
+  choice.innerText = computer
+  let coords = choice.getAttribute('id')
+  let row = coords.split('-')[0]
+  let column = coords.split('-')[1]
+  board[row][column] = 'o'
+}
+
 let switchMode = () => {
   if (mode == 'Player vs Computer') mode = 'Player vs Player'
   else mode = 'Player vs Computer'
-
   pvcDisplay.classList.toggle('active')
   pvpDisplay.classList.toggle('active')
+  resetGame()
 }
 
 let resetGame = () => {
