@@ -1,2 +1,2 @@
 # Tic Tac Toe
-### [Live Preview](https://austintirrell.github.io/sketch)
+### [Live Preview](https://austintirrell.github.io/tictactoe)
