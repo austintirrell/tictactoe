@@ -6,12 +6,17 @@ let createElement = (type, className, id, text, parent) => {
   if (id) element.setAttribute('id', id)
   if (text) element.innerHTML = text
   if (parent) parent.appendChild(element)
+  return element
 }
 
 let displayBoard = () => {
+  while (gameContainer.firstChild) gameContainer.removeChild(gameContainer.firstChild)
   for (i = 0; i < 3; i++) {
     for (j = 0; j < 3; j++) {
-      createElement('div', 'board-piece', i + '-' + j, '', gameContainer)
+      let piece = createElement('button', 'board-piece', i + '-' + j, '', gameContainer)
+      piece.onclick = () => {
+        select(piece.getAttribute('id'))
+      }
     }
   }
 }

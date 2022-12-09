@@ -11,6 +11,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
+  border: none;
 }
 
 body {
@@ -25,8 +26,10 @@ body {
     height: 20rem;
   
     .board-piece {
+      @include flex();
       background: #EEEEEE;
       margin: .25rem;
+      font-size: 4rem;
     }
   }
 }
