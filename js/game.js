@@ -7,7 +7,7 @@ let board = [
 let player = 'x'
 let computer = 'o'
 let draw = 'c'
-let mode = '2 Player'
+let mode = 'Player vs Player'
 let turn = player
 
 let checkForWinOrDraw = () => {
@@ -79,11 +79,6 @@ let select = (coords) => {
     boardPiece.innerText = turn
     board[row][column] = turn
 
-    if (mode == '2 Player') {
-      if (turn == player) turn = computer
-      else turn = player
-    }
-
     let outcome = checkForWinOrDraw()
     if (outcome) {
       if (outcome == player) alert('Player wins!')
@@ -91,6 +86,11 @@ let select = (coords) => {
       if (outcome == draw) alert('Draw!')
       resetGame()
     }
+
+    if (mode == 'Player vs Computer') {
+      if (turn == player) turn = computer
+      else turn = player
+    } else if (mode == 'Player vs Computer') computerSelect()
   }
 }
 

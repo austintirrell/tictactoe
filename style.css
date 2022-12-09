@@ -22,10 +22,66 @@ body #game-board {
 }
 body #game-board .board-piece {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   background: #EEEEEE;
   margin: 0.25rem;
   font-size: 4rem;
+}
+body .options-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+  width: 20rem;
+}
+body .options-container .mode-display {
+  text-align: center;
+  width: 5rem;
+  color: #BBBBBB;
+}
+body .options-container .mode-display.active {
+  color: #000000;
+}
+body .options-container .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+body .options-container .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+body .options-container .switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+body .options-container .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+body .options-container .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+body .options-container .slider.round {
+  border-radius: 34px;
+}
+body .options-container .slider.round:before {
+  border-radius: 50%;
 }/*# sourceMappingURL=style.css.map */
