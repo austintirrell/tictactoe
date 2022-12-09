@@ -1,4 +1,7 @@
 let gameContainer = document.getElementById('game-board')
+let pvcDisplay = document.getElementById('pvcDisplay')
+let pvpDisplay = document.getElementById('pvpDisplay')
+let modeSwitch = document.getElementById('mode-switch')
 
 let createElement = (type, className, id, text, parent) => {
   let element = document.createElement(type)
@@ -21,6 +24,9 @@ let displayBoard = () => {
   }
 }
 
+modeSwitch.onchange = () => switchMode()
+
 window.onload = () => {
   displayBoard()
+  pvcDisplay.classList.toggle('active')
 }

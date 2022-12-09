@@ -7,7 +7,7 @@ let board = [
 let player = 'x'
 let computer = 'o'
 let draw = 'c'
-let mode = 'Player vs Player'
+let mode = 'Player vs Computer'
 let turn = player
 
 let checkForWinOrDraw = () => {
@@ -92,6 +92,14 @@ let select = (coords) => {
       else turn = player
     } else if (mode == 'Player vs Computer') computerSelect()
   }
+}
+
+let switchMode = () => {
+  if (mode == 'Player vs Computer') mode = 'Player vs Player'
+  else mode = 'Player vs Computer'
+
+  pvcDisplay.classList.toggle('active')
+  pvpDisplay.classList.toggle('active')
 }
 
 let resetGame = () => {

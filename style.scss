@@ -46,6 +46,7 @@ body {
       text-align: center;
       width: 5rem;
       color: #BBBBBB;
+      transition: all 500ms;
 
       &.active {
         color: #000000;

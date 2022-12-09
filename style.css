@@ -41,6 +41,7 @@ body .options-container .mode-display {
   text-align: center;
   width: 5rem;
   color: #BBBBBB;
+  transition: all 500ms;
 }
 body .options-container .mode-display.active {
   color: #000000;
