@@ -9,7 +9,7 @@ let computer = 'O'
 
 let checkForWinOrDraw = () => {
   //check rows
-  for (i = 0; i < 3; i++) {
+  for (i = 0; i < board.length; i++) {
     if (board[i][0] == player &&
       board[i][1] == player &&
       board[i][2] == player) {
@@ -22,7 +22,7 @@ let checkForWinOrDraw = () => {
     }
   }
   //check columns
-  for (i = 0; i < 3; i++) {
+  for (i = 0; i < board.length; i++) {
     if (board[0][i] == player &&
       board[1][i] == player &&
       board[2][i] == player) {
@@ -55,8 +55,8 @@ let checkForWinOrDraw = () => {
   }
   //check for draw
   let draw = true
-  for (i = 0; i < 3; i++) {
-    for (j = 0; j < 3; j++) {
+  for (i = 0; i < board.length; i++) {
+    for (j = 0; j < board[i].length; j++) {
       if (board[i][j] == '') {
         draw = false
       }
